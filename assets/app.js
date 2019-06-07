@@ -11,13 +11,13 @@ $("#searchBtn").on("click", function () {
     $("#city-name").html("<h1>" + input + "</h1>");
 
     var API_KEY = '12715505-5709c2fd53c134eb9abea5b53';
-    var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input);
+    var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input)"$";
     $.getJSON(URL, function (data) {
-        if (parseInt(data.totalHits) > 0) $.each(data.hits, function (i, hit) {
-            console.log(hit);
-        });
-        else
-            console.log('No hits');
+        var hits = data.hits
+        for (i = 0; i < hits.length; i++){
+           console.log(data.hits[i].largeImageURL);
+        }
+        
     });
 });
 

@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-div {
+span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,4 +12,16 @@ div {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     width: 100%;
     height: 100vh;
+}
+
+span:nth-child(1) {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://www.iea.org/media/news/2017/171113WEO2017MainImage.jpg');
+    background-attachment: fixed;
+}
+
+#searchBtn {
+    background-color: rgba(255, 255, 255, 0.3);
 }

@@ -32,6 +32,25 @@ span:nth-child(3) {
     background-attachment: fixed;
 }
 
+.card {
+    margin: "0 auto";
+    background-color: "rgba(255,255,255,0.4)";
+}
+
+.card-body {
+    text-shadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white";
+}
+
 #searchBtn {
     background-color: rgba(255, 255, 255, 0.7);
+}
+
+#new-city {
+    background-size: cover;
+    opacity: .9;
+    display: none;
+}
+
+#city-name {
+    display: none;
 }

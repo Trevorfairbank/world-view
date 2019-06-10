@@ -7,6 +7,8 @@ let offset = window.pageYOffset;
 })
 
 $("#searchBtn") .on("click", function () {
+    $("#city-name").show();
+    $("#new-city").show();
     var input = $("#city-input").val().trim();
         $("#city-name").html("<h1>" + input + "</h1>");
 
@@ -17,7 +19,7 @@ $("#searchBtn") .on("click", function () {
             for (i = 0; i < hits.length; i++) {
                 console.log(data.hits[i].largeImageURL);
             };
-
+            $("#new-city").css("background-image", "url(" + data.hits[0].largeImageURL + ")");
         });
 
 
@@ -33,7 +35,7 @@ $("#searchBtn") .on("click", function () {
         }).then(function (response) {
             console.log(response);
             for (var i = 0; i < 4; i++) {
-                var cardThing = $("<div>").addClass("card col-md-10").css("margin", "0 auto");
+                var cardThing = $("<div>").addClass("card col-md-10");
 
                 var cardBody = $("<div>").addClass("card-body");
                 cardBody.append("<h6>" + response.articles[i].author + "</h6>");

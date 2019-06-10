@@ -22,10 +22,11 @@ $("#searchBtn") .on("click", function () {
 
 
         var headline = $("<div>");
-        headline.css({
-            'float': 'screenLeft',
-            'border': '1px solid black'
-        })
+        // headline.css({
+        //     'float': 'left',
+        //     'border': '1px solid black',
+        //     'padding': '20px'
+        // })
         var qUrl = 'https://newsapi.org/v2/everything?q=' + input + '&apiKey=ba75c605a3c141558186bc2db4f3dc52';
         $.ajax({
             url: qUrl,

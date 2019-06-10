@@ -9,7 +9,21 @@ window.addEventListener("scroll", function () {
 var data;
 var hits;
 
-$("#searchBtn").on("click", function () {
+$(window).keydown(function(event){
+    if( (event.keyCode == 13) ){
+    searchFunction();
+    event.preventDefault();
+    return false;
+    }
+  });
+
+$("#searchBtn").on("click", function (event) {
+    event.preventDefault();
+  searchFunction();
+
+});
+
+function searchFunction(event){
     var input = $("#city-input").val().trim();
     $("#city-name").html("<h1>" + input + "</h1>");
 
@@ -48,13 +62,7 @@ $("#searchBtn").on("click", function () {
         }
     });
     $("#new-city").html(headline);
-
-
-
-
-});
-
-
+}
 
 
 

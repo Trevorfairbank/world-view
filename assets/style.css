@@ -8,7 +8,6 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -27,9 +26,10 @@ span:nth-child(2) {
 }
 
 span:nth-child(3) {
-    background-color: wheat;
+    background-color: pink;
     padding: 30px;
     background-attachment: fixed;
+    height: 100vh;
 }
 
 .card {

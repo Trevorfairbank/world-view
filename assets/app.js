@@ -25,7 +25,7 @@ $("#searchBtn").on("click", function () {
             var cardBody = cardThing.append($("<div>").addClass("card-body"));
             cardBody.append("<h3>" + response.articles[i].title + "</h3>");
             cardBody.append("<h6>" + response.articles[i].author + "</h6>");
-            cardBody.append($('<a href=' + response.articles[i].url + 'class="btn btn-primary">Go to Article</a>'));
+            cardBody.append($('<a href=' + response.articles[i].url + '>Go to Article</a>'));
             headline.append(cardThing);
         }
     });

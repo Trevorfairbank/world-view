@@ -1,7 +1,7 @@
 
 const parallax = document.getElementById("parallax");
 let offset = window.pageYOffset;
-    parallax.style.backgroundPositionY = offset * -0.5 + "px";
+parallax.style.backgroundPositionY = offset * -0.5 + "px";
 
 window.addEventListener("scroll", function () {
     let offset = window.pageYOffset;
@@ -9,6 +9,7 @@ window.addEventListener("scroll", function () {
 })
 
 $("#searchBtn").on("click", function () {
+    $("#new-city").css("background-image", "url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f9203f43012225.57e05eb56b036.png)");
     $("#city-name").show();
     $("#new-city").show();
     var input = $("#city-input").val().trim();
@@ -38,7 +39,7 @@ $("#searchBtn").on("click", function () {
 
             var cardBody = $("<div>").addClass("card-body");
             cardBody.append("<h6>" + response.articles[i].author + "</h6>");
-            cardBody.append($('<a href=' + response.articles[i].url + '></a>').html('<h3>' + response.articles[i].title + '</h3>'));
+            cardBody.append($('<a target = _blank href=' + response.articles[i].url + '></a>').html('<h3>' + response.articles[i].title + '</h3>'));
             cardBody.append(response.articles[i].description);
             cardThing.append(cardBody);
             headline.append(cardThing);
@@ -47,13 +48,13 @@ $("#searchBtn").on("click", function () {
     $("#new-city").html(headline);
     $('html, body').animate({
         scrollTop: $("#new-city").offset().top
-    }, 2000);
+    }, 1400);
 });
 
 function titleCase(str) {
     var splitStr = str.toLowerCase().split(' ');
     for (var i = 0; i < splitStr.length; i++) {
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
-    return splitStr.join(' '); 
- }
+    return splitStr.join(' ');
+}

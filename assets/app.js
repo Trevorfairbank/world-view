@@ -74,14 +74,28 @@ function searchFunction() {
     addArray(input);
 
     var API_KEY = '12715505-5709c2fd53c134eb9abea5b53';
-    var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input);
+    var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input) + "&per_page=50";
 
     $.getJSON(URL, function (data) {
 
         var hits = data.hits
+        for (i = 1; i < hits.length; i++) {
+            var carBox = $("<div>");
+            var carImage = $("<img>");
+            if (i === 1) {
+                carBox.addClass("carousel-item active");
+            } else {
+                carBox.addClass("carousel-item");
+            }
+            carImage.attr({
+                src: hits[i].largeImageURL,
+                width: "100%",
+                height: 250
+            })
+            carBox.append(carImage);
+            $(".carousel-inner").append(carBox);
 
-        for (i = 0; i < hits.length; i++) {
-            $("#image-" + i).attr("src", hits[i].largeImageURL)
+            // $("#image-" + i).attr("src", hits[i].largeImageURL)
         };
 
         $("#new-city").css("background-image", "url(" + data.hits[0].largeImageURL + ")");

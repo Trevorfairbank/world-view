@@ -11,7 +11,7 @@ span {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-span:nth-child(1) {
+#parallax {
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -21,15 +21,15 @@ span:nth-child(1) {
     height: 100vh;
 }
 
-span:nth-child(2) {
+#city-name {
     height: 20vh;
 }
 
-span:nth-child(3) {
-    background-color: grey;
+#new-city {
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f9203f43012225.57e05eb56b036.png');
     padding: 30px;
     background-attachment: fixed;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .card {
@@ -40,6 +40,17 @@ span:nth-child(3) {
 .card-body {
     text-shadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white";
 }
+
+.card-body h3 {
+    /* margin:10px; */
+}
+.card {
+    text-align: center;
+    float:left;
+    margin:5px;
+    opacity:80;
+}
+
 
 #searchBtn {
     background-color: rgba(255, 255, 255, 0.7);
@@ -54,3 +65,21 @@ span:nth-child(3) {
 #city-name {
     display: none;
 }
+
+#carousel {
+    display:none;
+}
+
+/* .carouselExampleControls {
+    float:left;
+} */
+
+.car-spot {
+    /* height: 30%; */
+    width: 30%;
+    margin: 0 auto;
+}
+
+/* .active {
+max-height: 200px;
+} */

@@ -42,10 +42,14 @@ $("#searchBtn").on("click", function (event) {
     searchFunction();
 });
 
+$("#image-1").attr("src");
+
 function searchFunction() {
+    $("#new-cards-home").empty();
     $("#new-city").css("background-image", "url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f9203f43012225.57e05eb56b036.png)");
     $("#city-name").show();
     $("#new-city").show();
+    $("#carousel").show();
 
     var input = $("#city-input").val().trim();
     input = titleCase(input);
@@ -60,7 +64,9 @@ function searchFunction() {
     $.getJSON(URL, function (data) {
         var hits = data.hits
         for (i = 0; i < hits.length; i++) {
-            console.log(data.hits[i].largeImageURL);
+            $("#image-" + i).attr("src", hits[i].largeImageURL)
+            // $("#" + i)
+            // console.log(typeof $("#image-" + i + ""));
         };
         $("#new-city").css("background-image", "url(" + data.hits[0].largeImageURL + ")");
     });
@@ -86,29 +92,30 @@ function searchFunction() {
                     cardBody.append("<h6>" + response.articles[i].author + "</h6>");
                 }
                 date = date.fontcolor("gray");
-                cardBody.append($('<a target = _blank href=' + response.articles[i].url + '></a>').html('<h3>' + response.articles[i].title + '</h3>'));
+                cardBody.append($('<a target = _blank href=' + response.articles[i].url + '></a>').append('<h3>' + response.articles[i].title + '</h3>'));
                 cardBody.append("<p>" + date + "</p>");
                 cardBody.append(response.articles[i].description);
                 cardThing.append(cardBody);
                 headline.append(cardThing);
             }
-        }
+        };
+        $("#new-cards-home").append(headline);
+        $('html, body').animate({
+            scrollTop: $("#new-city").offset().top
+        }, 1400);
+    
+        database.ref().set({
+            array: counterArray
+        });
     });
-    $("#new-city").html(headline);
-    $('html, body').animate({
-        scrollTop: $("#new-city").offset().top
-    }, 1400);
-    database.ref().set({
-        array: counterArray
-    });
-}
 
-function titleCase(str) {
-    var splitStr = str.toLowerCase().split(' ');
-    for (var i = 0; i < splitStr.length; i++) {
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+}
+function findArray(search) {
+    for (var i = 0; i < counterArray.length; i++) {
+        if (counterArray[i].keyword == search) {
+            return counterArray[i].counter;
+        }
     }
-    return splitStr.join(' ');
 }
 
 function addArray(search) {
@@ -127,10 +134,10 @@ function addArray(search) {
     }
 }
 
-function findArray(search) {
-    for (var i = 0; i < counterArray.length; i++) {
-        if (counterArray[i].keyword == search) {
-            return counterArray[i].counter;
-        }
+function titleCase(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
+    return splitStr.join(' ');
 }

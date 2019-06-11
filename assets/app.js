@@ -52,6 +52,10 @@ $("#city-name").on("click", ".trendBtn", function() {
 })
 
 $("#image-1").attr("src");
+$("#modal").show();
+$(document).on("click", function(){
+    $("#modal").remove();
+})
 
 function searchFunction() {
 
@@ -60,6 +64,7 @@ function searchFunction() {
     $("#city-name").show();
     $("#new-city").show();
     $("#carousel").show();
+    $("#modal").remove();
 
     var input = $("#city-input").val().trim();
     input = titleCase(input);

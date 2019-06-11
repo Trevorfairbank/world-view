@@ -33,6 +33,7 @@ function searchFunction() {
         input = titleCase(input);
         $("#city-name").html("<h1>" + input + "</h1>");
 
+
         var API_KEY = '12715505-5709c2fd53c134eb9abea5b53';
         var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input);
         $.getJSON(URL, function (data) {

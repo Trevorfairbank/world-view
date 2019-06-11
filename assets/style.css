@@ -26,7 +26,7 @@ span:nth-child(2) {
 }
 
 span:nth-child(3) {
-    background-color: pink;
+    background-color: grey;
     padding: 30px;
     background-attachment: fixed;
     height: 100vh;

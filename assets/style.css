@@ -21,11 +21,11 @@ span {
     height: 100vh;
 }
 
-span:nth-child(2) {
+#city-name {
     height: 20vh;
 }
 
-span:nth-child(3) {
+#new-city {
     background-color: pink;
     padding: 30px;
     background-attachment: fixed;
@@ -66,24 +66,11 @@ span:nth-child(3) {
     display: none;
 }
 
-.carousel-inner .carousel-item.active,
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
-  display: flex;
+#carousel {
+    display:none;
 }
 
-.carousel-inner .carousel-item-right.active,
-.carousel-inner .carousel-item-next {
-  transform: translateX(25%);
+.carouselExampleControls {
+    float:left;
 }
 
-.carousel-inner .carousel-item-left.active, 
-.carousel-inner .carousel-item-prev {
-  transform: translateX(-25%);
-}
-  
-.carousel-inner .carousel-item-right,
-.carousel-inner .carousel-item-left{ 
-  transform: translateX(0);
-  
-}

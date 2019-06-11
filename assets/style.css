@@ -70,7 +70,16 @@ span {
     display:none;
 }
 
-.carouselExampleControls {
+/* .carouselExampleControls {
     float:left;
+} */
+
+.car-spot {
+    /* height: 30%; */
+    width: 30%;
+    margin: 0 auto;
 }
 
+/* .active {
+max-height: 200px;
+} */

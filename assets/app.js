@@ -42,6 +42,15 @@ $("#searchBtn").on("click", function (event) {
     searchFunction();
 });
 
+$("#trendingBtn").on("click", function (event) {
+    event.preventDefault();
+    trendingFunction();
+})
+
+$("#city-name").on("click", ".trendBtn", function() {
+    $("#city-input").val($(this).attr("data-keyword"));
+})
+
 $("#image-1").attr("src");
 $("#modal").show();
 $(document).on("click", function(){
@@ -49,6 +58,7 @@ $(document).on("click", function(){
 })
 
 function searchFunction() {
+
     $("#new-cards-home").empty();
     $("#new-city").css("background-image", "url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f9203f43012225.57e05eb56b036.png)");
     $("#city-name").show();
@@ -67,54 +77,104 @@ function searchFunction() {
     var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input);
 
     $.getJSON(URL, function (data) {
+
         var hits = data.hits
+
         for (i = 0; i < hits.length; i++) {
             $("#image-" + i).attr("src", hits[i].largeImageURL)
-            // $("#" + i)
-            // console.log(typeof $("#image-" + i + ""));
         };
+
         $("#new-city").css("background-image", "url(" + data.hits[0].largeImageURL + ")");
+
     });
 
     var headline = $("<div>").addClass("card-deck");
     var qUrl = 'https://newsapi.org/v2/everything?q=' + input + '&apiKey=ba75c605a3c141558186bc2db4f3dc52';
+
     $.ajax({
         url: qUrl,
         method: "GET"
     }).then(function (response) {
+
         if (response.articles.length === 0) {
             headline.append($("<h1>No Articles Found</h1>").css("color", "white"));
         }
+
         else {
             for (var i = 0; i < 4; i++) {
-                var cardThing = $("<div>").addClass("card col-md-10");
+
                 var date = moment(response.articles[i].publishedAt).format("MMM Do YYYY");
+                date = date.fontcolor("gray");
+
+                var cardThing = $("<div>").addClass("card col-md-10");
                 var cardBody = $("<div>").addClass("card-body");
+
                 if (response.articles[i].author == null) {
                     cardBody.append("<h6>Unknown Author</h6>");
                 }
+
                 else {
                     cardBody.append("<h6>" + response.articles[i].author + "</h6>");
                 }
-                date = date.fontcolor("gray");
+
                 cardBody.append($('<a target = _blank href=' + response.articles[i].url + '></a>').append('<h3>' + response.articles[i].title + '</h3>'));
                 cardBody.append("<p>" + date + "</p>");
                 cardBody.append(response.articles[i].description);
+
                 cardThing.append(cardBody);
+
                 headline.append(cardThing);
+
             }
         };
+
         $("#new-cards-home").append(headline);
+
         $('html, body').animate({
             scrollTop: $("#new-city").offset().top
         }, 1400);
-    
+
         database.ref().set({
             array: counterArray
         });
+
     });
 
 }
+
+var trendKey = ""
+
+function trendingFunction() {
+    $("#new-cards-home").empty();
+    $("#city-name").empty();
+    $("#city-name").show();
+    $("#new-city").hide();
+
+    var trendArr = sortArray(counterArray);
+    for (var i = 0; i < 5; i++) {
+        trendKey = $("<button>").text(trendArr[i].keyword).addClass("trendBtn pl-2 btn-link").attr("data-keyword", trendArr[i].keyword);
+        var trendingSpan = $("<span>").addClass("pr-4 h1").text((i+1) + ":").append(trendKey);
+        $("#city-name").append(trendingSpan);
+    }
+    $('html, body').animate({
+        scrollTop: $("#city-name").offset().top
+    }, 1400);
+}
+
+function sortArray(arr) {
+    var len = arr.length;
+    for (var i = len - 1; i >= 0; i--) {
+        for (var j = 1; j <= i; j++) {
+            if (arr[j - 1].counter < arr[j].counter) {
+                var temp = arr[j - 1];
+                arr[j - 1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
 function findArray(search) {
     for (var i = 0; i < counterArray.length; i++) {
         if (counterArray[i].keyword == search) {
@@ -124,13 +184,18 @@ function findArray(search) {
 }
 
 function addArray(search) {
+
     var inArray = false;
+
     for (var i = 0; i < counterArray.length; i++) {
+
         if (counterArray[i].keyword == search) {
             inArray = true;
             counterArray[i].counter++
         }
+
     }
+
     if (!inArray) {
         counterArray.push({
             keyword: search,
@@ -140,9 +205,12 @@ function addArray(search) {
 }
 
 function titleCase(str) {
+
     var splitStr = str.toLowerCase().split(' ');
+
     for (var i = 0; i < splitStr.length; i++) {
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
+
     return splitStr.join(' ');
 }

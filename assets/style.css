@@ -55,6 +55,12 @@ span {
 #searchBtn {
     background-color: rgba(255, 255, 255, 0.7);
 }
+#trendingBtn {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.trending {
+    margin: 0 auto;
+}
 
 #new-city {
     background-size: cover;

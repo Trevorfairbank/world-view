@@ -21,6 +21,8 @@ $("#searchBtn").on("click", function (event) {
     searchFunction();
 });
 
+$("#image-1").attr("src", );
+
 function searchFunction() {
         $("#new-cards-home").empty();
         $("#new-city").css("background-image", "url(https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f9203f43012225.57e05eb56b036.png)");
@@ -35,10 +37,14 @@ function searchFunction() {
         var API_KEY = '12715505-5709c2fd53c134eb9abea5b53';
         var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input);
         $.getJSON(URL, function (data) {
+            console.log(data);
             var hits = data.hits
             for (i = 0; i < hits.length; i++) {
-                console.log(data.hits[i].largeImageURL);
+                $("#image-" + i).attr("src", hits[i].largeImageURL)
+                // $("#" + i)
+                // console.log(typeof $("#image-" + i + ""));
             };
+            // $("#image-1").attr("src", data.hits[1].largeImageURL);
             $("#new-city").css("background-image", "url(" + data.hits[0].largeImageURL + ")");
         });
 

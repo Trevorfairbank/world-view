@@ -71,6 +71,11 @@ function searchFunction() {
     $("#city-name").html("<h1>" + input + "</h1>");
     console.log(findArray(input));
 
+    if (input === "") {
+        $("#new-city").hide();
+        $("#city-name").hide();
+    }
+
     addArray(input);
 
     var API_KEY = '12715505-5709c2fd53c134eb9abea5b53';
@@ -112,7 +117,11 @@ function searchFunction() {
     }).then(function (response) {
 
         if (response.articles.length === 0) {
-            headline.append($("<h1>No Articles Found</h1>").css("color", "white"));
+            $("#city-name").html("<h1>No Articles Found</h1>");
+            $("#new-city").hide();
+            $('html, body').animate({
+                scrollTop: $("#city-name").offset().top
+            }, 1400);
         }
 
         else {

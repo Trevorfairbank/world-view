@@ -31,36 +31,38 @@ span {
     to {background-position:-10000px 5000px;}
 }
 
-.stars, .twinkling, .forground, span:nth-child(1), span:nth-child(2), span:nth-child(3) {
-  position:absolute;
+.stars, .twinkling, .forground {
+  position: absolute;
   top:0;
   left:0;
   right:0;
   bottom:0;
   width:100%;
   height:100%;
-  display:block;
+  display:inline-block;
 }
 
 .stars {
   background:#000 url(https://i.imgur.com/xvJVisQ.jpg) repeat top center;
-  z-index:0;
+  z-index: 0;
+  width: 100%;
 }
 
 .twinkling{
   background:transparent url(https://i.imgur.com/OsOkLt9.png) repeat top center;
-  z-index:0;
-
-  -moz-animation:move-twink-back 200s linear infinite;
-  -ms-animation:move-twink-back 200s linear infinite;
-  -o-animation:move-twink-back 200s linear infinite;
-  -webkit-animation:move-twink-back 200s linear infinite;
-  animation:move-twink-back 200s linear infinite;
+  z-index: 0;
+  width: 100%;
+  -moz-animation: move-twink-back 200s linear infinite;
+  -ms-animation: move-twink-back 200s linear infinite;
+  -o-animation: move-twink-back 200s linear infinite;
+  -webkit-animation: move-twink-back 200s linear infinite;
+  animation: move-twink-back 200s linear infinite;
 }
 
 .forground{
     background:transparent url(https://i.imgur.com/gRF4U5Q.png) repeat top center;
     z-index: 1;
+    width: 100%;
 }
 
 

@@ -77,6 +77,7 @@ function searchFunction() {
     var URL = "https://pixabay.com/api/?key=" + API_KEY + "&q=" + encodeURIComponent(input) + "&per_page=50";
 
     $.getJSON(URL, function (data) {
+        $(".carousel-inner").empty()
 
         var hits = data.hits
         for (i = 1; i < hits.length; i++) {
@@ -87,6 +88,7 @@ function searchFunction() {
             } else {
                 carBox.addClass("carousel-item");
             }
+            console.log(hits[i].largeImageURL);
             carImage.attr({
                 src: hits[i].largeImageURL,
                 width: "100%",
@@ -94,9 +96,8 @@ function searchFunction() {
             })
             carBox.append(carImage);
             $(".carousel-inner").append(carBox);
-
-            // $("#image-" + i).attr("src", hits[i].largeImageURL)
         };
+
 
         $("#new-city").css("background-image", "url(" + data.hits[0].largeImageURL + ")");
 

@@ -16,7 +16,7 @@ span {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    
+    background-image: url('https://zone1-vgu.netdna-ssl.com/wp-content/uploads/2014/04/earth-sunrise.jpg');
     background-attachment: fixed;
     width: 100%;
     height: 100vh;
@@ -84,7 +84,7 @@ span {
 
 .car-spot {
     /* height: 30%; */
-    width: 30%;
+    width: 28%;
     margin: 0 auto;
 }
 

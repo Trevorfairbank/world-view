@@ -8,7 +8,7 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "oxygen", sans-serif;
     z-index: 1;
 }
 .logo {
@@ -26,7 +26,7 @@ span {
 }
 
 #city-name {
-    height: 20vh;
+    height: 10vh;
     z-index: 1;
 }
 
@@ -38,10 +38,13 @@ span {
 
 .card {
     margin: "0 auto";
-    background-color: "rgba(255,255,255,0.4)";
+    background-color: rgba(255, 253, 253, 0.875);
+    color: black;
+    text-shadow: 2px 2px white;
 }
 
 .card-body {
+    /* background-color: black; */
     text-shadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white";
 }
 
@@ -80,6 +83,8 @@ span {
 }
 
 .car-spot {
+    border-radius: 5px;
+    border: solid rgba(255, 255, 255, 0.808) 2px;
     width: 350px;
     margin: 0 auto;
 }
@@ -93,6 +98,15 @@ span {
     text-shadow: 1px 1px black;
     font-family: Arial, Helvetica, sans-serif;
 
+}
+
+footer {
+    background-color: rgba(32, 32, 32, 0.507);
+    font-weight: bold;
+    font-size: 15px;
+    text-shadow: 1px 1px rgb(202, 202, 202);
+    width: 320px;
+    margin: 0 auto;
 }
 
 @media only screen and (max-width: 360px){

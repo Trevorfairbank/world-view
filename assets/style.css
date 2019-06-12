@@ -9,6 +9,7 @@ span {
     align-items: center;
     justify-content: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    z-index: 1;
 }
 
 #parallax {
@@ -19,17 +20,18 @@ span {
     background-attachment: fixed;
     width: 100%;
     height: 100vh;
+    z-index: 1;
 }
 
 #city-name {
     height: 20vh;
+    z-index: 1;
 }
 
 #new-city {
     background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f9203f43012225.57e05eb56b036.png');
     padding: 30px;
     background-attachment: fixed;
-    /* height: 100vh; */
 }
 
 .card {
@@ -41,13 +43,13 @@ span {
     text-shadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white";
 }
 
-.card-body h3 {
-    /* margin:10px; */
-}
 .card {
     text-align: center;
     float:left;
     margin:5px;
+}
+#new-cards-home {
+    margin-top:20px;
 }
 
 
@@ -75,27 +77,47 @@ span {
     display:none;
 }
 
-/* .carouselExampleControls {
-    float:left;
-} */
-
 .car-spot {
-    /* height: 30%; */
-    width: 25%;
+    width: 350px;
     margin: 0 auto;
 }
-
-/* .active {
-max-height: 200px;
-} */
 
 .modal-content {
     background-color: rgba(30, 133, 192, 0.425);
     color:#fff;
 }
 .p {
-    color:rgba(255, 255, 255, 0.507);
-    margin-top: 40%;
+    color:rgba(255, 255, 255, 0.692);
     text-shadow: 1px 1px black;
+    font-family: Arial, Helvetica, sans-serif;
 
+}
+
+@media only screen and (max-width: 360px){
+    .carousel-item {
+        width: 200px;
+        margin: 0 auto;
+    }
+    
+}
+@media only screen and (max-width: 600px){
+    .carousel-item {
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+}
+@media only screen and (max-width: 768px){
+    .carousel-item {
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+}
+@media only screen and (max-width: 980px){
+    .carousel-item {
+        width: 350px;
+        margin: 0 auto;
+    }
+    
 }

@@ -11,9 +11,6 @@ span {
     font-family: "oxygen", sans-serif;
     z-index: 1;
 }
-.logo {
-    margin:0 auto;
-}
 #parallax {
     overflow: hidden;
     background-size: cover;

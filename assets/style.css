@@ -9,20 +9,76 @@ span {
     align-items: center;
     justify-content: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    z-index: 1;
 }
+
+
+/*star styles starting here */
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+.stars, .twinkling, .forground, span:nth-child(1), span:nth-child(2), span:nth-child(3) {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(https://i.imgur.com/xvJVisQ.jpg) repeat top center;
+  z-index:0;
+}
+
+.twinkling{
+  background:transparent url(https://i.imgur.com/OsOkLt9.png) repeat top center;
+  z-index:0;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.forground{
+    background:transparent url(https://i.imgur.com/gRF4U5Q.png) repeat top center;
+    z-index: 1;
+}
+
+
 
 span:nth-child(1) {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('https://zone1-vgu.netdna-ssl.com/wp-content/uploads/2014/04/earth-sunrise.jpg');
+    
     background-attachment: fixed;
     width: 100%;
     height: 100vh;
+    z-index: 1;
 }
 
 span:nth-child(2) {
     height: 20vh;
+    z-index: 1;
 }
 
 span:nth-child(3) {
@@ -30,6 +86,7 @@ span:nth-child(3) {
     padding: 30px;
     background-attachment: fixed;
     height: 100vh;
+    z-index: 1;
 }
 
 .card {

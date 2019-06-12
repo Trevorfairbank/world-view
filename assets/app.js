@@ -78,9 +78,10 @@ function searchFunction() {
 
     $.getJSON(URL, function (data) {
         $(".carousel-inner").empty()
-
+        console.log(data);
         var hits = data.hits
         for (i = 1; i < hits.length; i++) {
+            
             var carBox = $("<div>");
             var carImage = $("<img>");
             if (i === 1) {
@@ -88,9 +89,9 @@ function searchFunction() {
             } else {
                 carBox.addClass("carousel-item");
             }
-            console.log(hits[i].largeImageURL);
+            
             carImage.attr({
-                src: hits[i].largeImageURL,
+                src: hits[i].previewURL,
                 width: "100%",
                 height: 250
             })

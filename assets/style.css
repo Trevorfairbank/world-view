@@ -81,7 +81,7 @@ span {
 
 .car-spot {
     /* height: 30%; */
-    width: 27%;
+    width: 350px;
     margin: 0 auto;
 }
 
@@ -98,4 +98,37 @@ max-height: 200px;
     margin-top: 40%;
     text-shadow: 1px 1px black;
 
+}
+
+@media only screen and (max-width: 360px){
+    .carousel-item {
+        /* height: 30%; */
+        width: 200px;
+        margin: 0 auto;
+    }
+    
+}
+@media only screen and (max-width: 600px){
+    .carousel-item {
+        /* height: 30%; */
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+}
+@media only screen and (max-width: 768px){
+    .carousel-item {
+        /* height: 30%; */
+        width: 350px;
+        margin: 0 auto;
+    }
+    
+}
+@media only screen and (max-width: 980px){
+    .carousel-item {
+        /* height: 30%; */
+        width: 350px;
+        margin: 0 auto;
+    }
+    
 }

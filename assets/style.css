@@ -36,10 +36,13 @@ span {
 
 .card {
     margin: "0 auto";
-    background-color: "rgba(255,255,255,0.4)";
+    background-color: rgba(255, 253, 253, 0.842);
+    color: black;
+    text-shadow: 2px 2px white;
 }
 
 .card-body {
+    /* background-color: black; */
     text-shadow: "-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white";
 }
 
@@ -78,6 +81,8 @@ span {
 }
 
 .car-spot {
+    border-radius: 5px;
+    border: solid rgba(255, 255, 255, 0.808) 2px;
     width: 350px;
     margin: 0 auto;
 }

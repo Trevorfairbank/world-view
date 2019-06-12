@@ -49,6 +49,9 @@ $("#trendingBtn").on("click", function (event) {
 
 $("#city-name").on("click", ".trendBtn", function() {
     $("#city-input").val($(this).attr("data-keyword"));
+    $('html, body').animate({
+        scrollTop: $("#parallax").offset().top
+    }, 600);
 })
 
 $("#image-1").attr("src");

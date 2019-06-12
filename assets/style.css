@@ -11,7 +11,9 @@ span {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     z-index: 1;
 }
-
+.logo {
+    margin:0 auto;
+}
 #parallax {
     overflow: hidden;
     background-size: cover;

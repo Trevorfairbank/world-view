@@ -8,7 +8,7 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "oxygen", sans-serif;
     z-index: 1;
 }
 
@@ -24,7 +24,7 @@ span {
 }
 
 #city-name {
-    height: 20vh;
+    height: 10vh;
     z-index: 1;
 }
 

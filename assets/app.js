@@ -99,7 +99,7 @@ function searchFunction() {
             }
             
             carImage.attr({
-                src: hits[i].previewURL,
+                src: hits[i].largeImageURL,
                 width: "100%",
                 height: 250
             })
